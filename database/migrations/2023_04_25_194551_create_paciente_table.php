@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('paciente', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 64)->unique();
+            $table->string('doctor', 64)->unique();
+            $table->date('fecha');
             $table->timestamps();
         });
     }
