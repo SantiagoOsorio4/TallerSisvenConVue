@@ -35,7 +35,6 @@
   <br>
   <button class="btn btn-primary">Agregar</button>
   <a href="{{ route('paciente.index') }}">Regresar</a>
-  
    </form>
     <!-- Optional JavaScript; choose one of the two! -->
 
