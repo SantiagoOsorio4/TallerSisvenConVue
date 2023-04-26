@@ -33,7 +33,7 @@ class PacienteController extends Controller
         $pacientes-> fecha = $request->post('fecha');
         $pacientes->save();
 
-        return redirect()->route("paciente.index")->with("success", "agregado con exito");
+        return redirect()->route("paciente.index");
 
     }
 
@@ -46,17 +46,26 @@ class PacienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $pacientes = paciente::find($id);
+        return view("paciente.update", compact('pacientes'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $pacientes = paciente::find($id);
+        $pacientes-> id = $request->post('id');
+        $pacientes-> name = $request->post('name');
+        $pacientes-> doctor = $request->post('doctor');
+        $pacientes-> fecha = $request->post('fecha');
+        $pacientes->save();
+
+        return redirect()->route("paciente.index");
+    
     }
 
     /**

@@ -30,6 +30,13 @@
   <td>{{$paciente->name}}</td>
   <td>{{$paciente->doctor}}</td>
   <td>{{$paciente->fecha }}</td>
+  <td>
+    <form action="{{ route('paciente.edit', $paciente->id)}}" method="GET">
+      <button class="btn btn-warning btn-sm">
+        <span class="fas fa-user-edit">editar</span>
+      </button>
+    </form>
+  </td>
 </tr> 
     </tr>
     @endforeach

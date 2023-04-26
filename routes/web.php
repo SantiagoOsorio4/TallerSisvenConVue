@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/pacientes', [PacienteController::class, 'index'])->name('paciente.index');
 Route::get('/pacientes/create', [PacienteController::class, 'create'])->name('paciente.create');
 Route::post('/store', [PacienteController::class, 'store'])->name('paciente.store');
-
+Route::get('/edit/{id}', [PacienteController::class, 'edit'])->name('paciente.edit');
+Route::put('/update/{id}', [PacienteController::class, 'update'])->name('paciente.update');
 });
 require __DIR__.'/auth.php';

@@ -9,6 +9,5 @@ class paciente extends Model
 {
     use HasFactory;
     protected $table = "pacientes";
-    protected $primaryKey = "name";
     public $timestamps = false;
 }
