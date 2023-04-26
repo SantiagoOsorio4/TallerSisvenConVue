@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\paciente;
+use App\Models\Paciente;
 use Illuminate\Http\Request;
 
 class PacienteController extends Controller
@@ -12,28 +12,32 @@ class PacienteController extends Controller
     public function index()
     {
         $pacientes = paciente::all();
-        return view("paciente.index", ["paciente"=> $pacientes]);
+
+        return view("paciente.index",["pacientes" => $pacientes]);
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+   
     public function create()
     {
-        //
+       return view("paciente.new");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
     {
-        //
+        $pacientes = new paciente();
+        $pacientes-> id = $request->post('id');
+        $pacientes-> name = $request->post('name');
+        $pacientes-> doctor = $request->post('doctor');
+        $pacientes-> fecha = $request->post('fecha');
+        $pacientes->save();
+
+        return redirect()->route("paciente.index")->with("success", "agregado con exito");
+
     }
 
-    /**
-     * Display the specified resource.
-     */
+ 
     public function show(string $id)
     {
         //
