@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\api;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\paciente;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\support\Facades\Route;
 
 class ClientesController extends Controller
 {
@@ -15,7 +14,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = DB::table('tb_customers')
+        $clientes = DB::table('customers')
         ->get();
         return json_encode(['clientes'=>$clientes]);
     }
@@ -25,15 +24,26 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = new Cliente();
+        $cliente->document_number = $request->document_number;
+        $cliente->firts_name = $request-> firts_name;
+        $cliente->last_name = $request-> last_name;
+        $cliente->address = $request-> address;
+        $cliente->birthday = $request-> birthday;
+        $cliente->phone_number = $request-> phone_number;
+        $cliente->email = $request-> email;
+        $cliente->save();
+        return json_encode(['cliente' => $cliente]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $cliente = Cliente::find($id);
+        
+        return json_encode(['cliente' => $cliente]);
     }
 
     /**
@@ -41,7 +51,16 @@ class ClientesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $cliente = Cliente::find($id);
+        $cliente->document_number = $request->document_number;
+        $cliente->firts_name = $request-> firts_name;
+        $cliente->last_name = $request-> last_name;
+        $cliente->address = $request-> address;
+        $cliente->birthday = $request-> birthday;
+        $cliente->phone_number = $request-> phone_number;
+        $cliente->email = $request-> email;
+        $cliente->save();
+        return json_encode(['cliente'=> $cliente]);
     }
 
     /**
@@ -49,6 +68,8 @@ class ClientesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $cliente = Cliente::find($id);
+        $cliente->delete();
+        return json_encode(['cliente'=>$cliente,'success'=>true]);
     }
 }
