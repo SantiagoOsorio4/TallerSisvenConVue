@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\ClientesController;
 use App\Http\Controllers\api\CategoriesController;
+use App\Http\Controllers\api\PayModeController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -32,3 +33,9 @@ Route::delete('/categories/{categorie}',[CategoriesController::class,'destroy'])
 Route::get('/categories/{categorie}',[CategoriesController::class,'show'])->name('categories.show');
 Route::put('/categories/{categorie}',[CategoriesController::class,'update'])->name('categories.update');
 
+//PayMode
+Route::post('/PayMode',[PayModeController::class,'store'])->name('PayMode.store');
+Route::get('/PayMode',[PayModeController::class,'index'])->name('PayMode');
+Route::delete('/PayMode/{PayMode}',[PayModeController::class,'destroy'])->name('PayMode.destroy');
+Route::get('/PayMode/{PayMode}',[PayModeController::class,'show'])->name('PayMode.show');
+Route::put('/PayMode/{PayMode}',[PayModeController::class,'update'])->name('PayMode.update');

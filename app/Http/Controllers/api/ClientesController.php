@@ -14,9 +14,9 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = DB::table('customers')
+        $cliente = DB::table('customers')
         ->get();
-        return json_encode(['clientes'=>$clientes]);
+        return json_encode(['cliente'=>$cliente]);
     }
 
     /**
