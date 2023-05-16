@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\ClientesController;
 use App\Http\Controllers\api\CategoriesController;
 use App\Http\Controllers\api\PayModeController;
+use App\Http\Controllers\api\ProductsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -39,3 +40,10 @@ Route::get('/PayMode',[PayModeController::class,'index'])->name('PayMode');
 Route::delete('/PayMode/{PayMode}',[PayModeController::class,'destroy'])->name('PayMode.destroy');
 Route::get('/PayMode/{PayMode}',[PayModeController::class,'show'])->name('PayMode.show');
 Route::put('/PayMode/{PayMode}',[PayModeController::class,'update'])->name('PayMode.update');
+
+//Products
+Route::post('/Products',[ProductsController::class,'store'])->name('Products.store');
+Route::get('/Products',[ProductsController::class,'index'])->name('Products');
+Route::delete('/Products/{Products}',[ProductsController::class,'destroy'])->name('Products.destroy');
+Route::get('/Products/{Products}',[ProductsController::class,'show'])->name('Products.show');
+Route::put('/Products/{Products}',[ProductsController::class,'update'])->name('Products.update');
