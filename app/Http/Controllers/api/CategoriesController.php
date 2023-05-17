@@ -24,11 +24,11 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $categorie = new Categorie();
-        $categorie->name = $request->name;
-        $categorie->description = $request-> description;
-        $categorie->save();
-        return json_encode(['categorie' => $categorie]);      
+        $categories = new Categorie();
+        $categories->name = $request->name;
+        $categories->description = $request-> description;
+        $categories->save();
+        return json_encode(['categorie' => $categories]);      
     }
 
     /**
@@ -36,9 +36,9 @@ class CategoriesController extends Controller
      */
     public function show(string $id)
     {
-        $categorie = Categorie::find($id);
+        $categories = Categorie::find($id);
         
-        return json_encode(['categorie' => $categorie]);
+        return json_encode(['categories' => $categories]);
     }
 
     /**
@@ -46,11 +46,11 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $categorie = Categorie::find($id);
-        $categorie->name = $request->name;
-        $categorie->description = $request-> description;
-        $categorie->save();
-        return json_encode(['categorie' => $categorie]);   
+        $categories = Categorie::find($id);
+        $categories->name = $request->name;
+        $categories->description = $request-> description;
+        $categories->save();
+        return json_encode(['categories' => $categories]);   
     }
 
     /**
@@ -58,8 +58,8 @@ class CategoriesController extends Controller
      */
     public function destroy(string $id)
     {
-        $categorie = Categorie::find($id);
-        $categorie->delete();
-        return json_encode(['categorie'=>$categorie,'success'=>true]);
+        $categories = Categorie::find($id);
+        $categories->delete();
+        return json_encode(['categories'=>$categorie,'success'=>true]);
     }
 }
