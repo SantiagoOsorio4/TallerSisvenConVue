@@ -24,13 +24,13 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $products = new Products();
-        $products->name = $request->name;
-        $products->price = $request-> price;
-        $products->stock = $request-> stock;
-        $products->category_id = $request-> category_id;
-        $products->save();
-        return json_encode(['cliente' => $cliente]);
+        $Products = new Products();
+        $Products->name = $request->name;
+        $Products->price = $request-> price;
+        $Products->stock = $request-> stock;
+        $Products->category_id = $request-> category_id;
+        $Products->save();
+        return json_encode(['Products' => $Products]);
     }
 
     /**
@@ -38,8 +38,8 @@ class ProductsController extends Controller
      */
     public function show(string $id)
     {
-        $products = Products::find($id);       
-        return json_encode(['products' => $products]);
+        $Products = Products::find($id);       
+        return json_encode(['Products' => $Products]);
     }
 
     /**
@@ -47,13 +47,13 @@ class ProductsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $products = Products::find($id); 
-        $products->name = $request->name;
-        $products->price = $request-> price;
-        $products->stock = $request-> stock;
-        $products->category_id = $request-> category_id;
-        $products->save();
-        return json_encode(['cliente' => $cliente]);
+        $Products = Products::find($id); 
+        $Products->name = $request->name;
+        $Products->price = $request-> price;
+        $Products->stock = $request-> stock;
+        $Products->category_id = $request-> category_id;
+        $Products->save();
+        return json_encode(['Products' => $Products]);
     }
 
     /**
@@ -61,8 +61,8 @@ class ProductsController extends Controller
      */
     public function destroy(string $id)
     {
-        $products = Products::find($id);
-        $products->delete();
-        return json_encode(['products'=>$products,'success'=>true]);
+        $Products = Products::find($id);
+        $Products->delete();
+        return json_encode(['Products'=>$Products,'success'=>true]);
     }
 }

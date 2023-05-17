@@ -24,16 +24,16 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        $cliente = new Cliente();
-        $cliente->document_number = $request->document_number;
-        $cliente->firts_name = $request-> firts_name;
-        $cliente->last_name = $request-> last_name;
-        $cliente->address = $request-> address;
-        $cliente->birthday = $request-> birthday;
-        $cliente->phone_number = $request-> phone_number;
-        $cliente->email = $request-> email;
-        $cliente->save();
-        return json_encode(['cliente' => $cliente]);
+        $clientes = new Cliente();
+        $clientes->document_number = $request->document_number;
+        $clientes->firts_name = $request-> firts_name;
+        $clientes->last_name = $request-> last_name;
+        $clientes->address = $request-> address;
+        $clientes->birthday = $request-> birthday;
+        $clientes->phone_number = $request-> phone_number;
+        $clientes->email = $request-> email;
+        $clientes->save();
+        return json_encode(['clientes' => $clientes]);
     }
 
     /**
@@ -41,9 +41,8 @@ class ClientesController extends Controller
      */
     public function show($id)
     {
-        $cliente = Cliente::find($id);
-        
-        return json_encode(['cliente' => $cliente]);
+        $clientes = Cliente::find($id);        
+        return json_encode(['clientes' => $clientes]);
     }
 
     /**
@@ -51,16 +50,16 @@ class ClientesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $cliente = Cliente::find($id);
-        $cliente->document_number = $request->document_number;
-        $cliente->firts_name = $request-> firts_name;
-        $cliente->last_name = $request-> last_name;
-        $cliente->address = $request-> address;
-        $cliente->birthday = $request-> birthday;
-        $cliente->phone_number = $request-> phone_number;
-        $cliente->email = $request-> email;
-        $cliente->save();
-        return json_encode(['cliente'=> $cliente]);
+        $clientes = Cliente::find($id);
+        $clientes->document_number = $request->document_number;
+        $clientes->firts_name = $request-> firts_name;
+        $clientes->last_name = $request-> last_name;
+        $clientes->address = $request-> address;
+        $clientes->birthday = $request-> birthday;
+        $clientes->phone_number = $request-> phone_number;
+        $clientes->email = $request-> email;
+        $clientes->save();
+        return json_encode(['clientes'=> $clientes]);
     }
 
     /**
@@ -68,8 +67,8 @@ class ClientesController extends Controller
      */
     public function destroy(string $id)
     {
-        $cliente = Cliente::find($id);
-        $cliente->delete();
-        return json_encode(['cliente'=>$cliente,'success'=>true]);
+        $clientes = Cliente::find($id);
+        $clientes->delete();
+        return json_encode(['clientes'=>$clientes,'success'=>true]);
     }
 }
