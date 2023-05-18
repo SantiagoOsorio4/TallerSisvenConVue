@@ -25,7 +25,7 @@ class PayModeController extends Controller
      */
     public function store(Request $request)
     {
-        $PayMode = new payMode();
+        $PayMode = new PayMode();
         $PayMode->name = $request->name;
         $PayMode->observation = $request-> observation;
         $PayMode->save();
@@ -35,18 +35,18 @@ class PayModeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        $PayMode = payMode::find($id);
+        $PayMode = PayMode::find($id);
         return json_encode(['PayMode' => $PayMode]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        $PayMode = payMode::find($id);
+        $PayMode = PayMode::find($id);
         $PayMode->name = $request->name;
         $PayMode->observation = $request-> observation;
         $PayMode->save();
@@ -56,9 +56,9 @@ class PayModeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        $PayMode = payMode::find($id);
+        $PayMode = PayMode::find($id);
         $PayMode->delete();
         return json_encode(['PayMode'=>$PayMode,'success'=>true]);
     }
